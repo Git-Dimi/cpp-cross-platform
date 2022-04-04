@@ -1,3 +1,6 @@
+#ifndef PERSON_H
+#define PERSON_H
+
 #include <string>
 #include <stdexcept>
 #include "Person.h"
@@ -24,3 +27,5 @@ void Person::setAge(int age) {
 bool Person::equals(Person p1, Person p2) {
     return p1.getAge() == p2.getAge() && p1.getName() == p2.getName();
 }
+
+#endif

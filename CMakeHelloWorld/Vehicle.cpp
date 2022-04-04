@@ -13,10 +13,10 @@ void Vehicle::setManufacturer(string manufacturer) {
 	this->manufacturer = manufacturer;
 }
 
-void Vehicle::setType(string type) {
-	if (type.empty())
+void Vehicle::setModel(string model) {
+	if (model.empty())
 		throw invalid_argument("The type of the vehicle isn't allowed to be empty!");
-	this->type = type;
+	this->model = model;
 }
 
 void Vehicle::setHorsepower(int horsepower) {

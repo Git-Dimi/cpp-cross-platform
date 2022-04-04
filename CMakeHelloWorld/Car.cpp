@@ -3,9 +3,9 @@
 #include <stdexcept>
 #include <iostream>
 
-Car::Car(string manufacturer, string type, int year, int horsepower, int torque, int amountOfWheels, double price, int milage, Enginetype enginetype) {
+Car::Car(string manufacturer, string model, int year, int horsepower, int torque, int amountOfWheels, double price, int milage, Enginetype enginetype) {
 	setManufacturer(manufacturer);
-	setType(type);
+	setModel(model);
 	setYear(year);
 	setHorsepower(horsepower);
 	setTorque(torque);
@@ -37,7 +37,7 @@ void Car::setMilage(int milage) {
 
 void Car::print() {
 	cout << "Fahrzeugdetails:" << endl << "Hersteller: " << getManufacturer() << endl
-		<< "Fabrikat: " << getType() << endl << "Antrieb: ";
+		<< "Fabrikat: " << getModel() << endl << "Antrieb: ";
 	switch (getEnginetype()) {
 	case Enginetype::GASOLINE: cout << "Ottomotor" << endl; break;
 	case Enginetype::DIESEL: cout << "Dieselmotor" << endl; break;
