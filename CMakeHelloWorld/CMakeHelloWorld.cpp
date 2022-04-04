@@ -1,58 +1,18 @@
-﻿// CMakeHelloWorld.cpp: Definiert den Einstiegspunkt für die Anwendung.
-//
-
-#include "CMakeHelloWorld.h"
+﻿#include "CMakeHelloWorld.h"
 #include <iostream>
 #include <string>
 #include "Enginetype.h"
 #include "Car.h"
 #include "Vehicle.h"
+#include "Person.h"
 
 using namespace std;
-
-class Person {
-private:
-    string name;
-    int age;
-
-public:
-    Person(string name, int age) {
-        this->setName(name);
-        this->setAge(age);
-    }
-
-    string getName() {
-        return name;
-    }
-
-    int getAge() {
-        return age;
-    }
-
-    void setName(string name) {
-        if (name.empty())
-            throw invalid_argument("Empty names are not allowed!");
-        this->name = name;
-    }
-
-    void setAge(int age) {
-        if (age < 0)
-            throw invalid_argument("Negatives ages are not allowed!");
-        this->age = age;
-    }
-
-    static bool equals(Person p1, Person p2) {
-        return p1.getAge() == p2.getAge() && p1.getName() == p2.getName();
-    }
-};
 
 ostream& operator<< (ostream& out, Person& data) {
     out << "Diese Daten liegen vor:" << endl << "Name: " << data.getName() << endl 
         << "Alter: " << data.getAge() << endl;
     return out;
 }
-
-
 
 int main()
 {
@@ -64,8 +24,13 @@ int main()
     int age = 0;
     try {
         age = stoi(line);
-        Person p = Person(name, age);
-        cout << p << endl;
+        Person p(name, age);
+        cout << p;
+        Person dimi("Dimitri", 29);
+        if (Person::equals(p, dimi))
+            cout << "Die eingegebenen Daten entsprechen denen des Entwicklers!";
+        else cout << "Die eingegebenen Daten unterscheiden sich von denen des Entwicklers!";
+        cout << endl << endl;
     }
     catch (exception e) {
         cerr << "Fehler! Stelle sicher, dass der Name nicht leer, das Alter eine Zahl und nicht negativ ist!" << endl;
